@@ -1,0 +1,53 @@
+{
+  "services": [
+    { 
+      "id": 1,
+      "name": "AWS Lambda",
+      "logo": "/img/icons/lambda.png"
+    }, { 
+      "id": 10,
+      "name": "Node.js",
+      "logo": "/img/icons/nodejs.png"
+    }
+  ],
+  "languages": [
+    {
+      "id": 1,
+      "name": "Logbird Query"
+    }
+  ],
+  "rules": [
+    {
+      "id": 1,
+      "serviceId": 1,
+      "langId": 1,
+      "name": "timeout",
+      "pattern": "*Task timed out after*"
+    },{
+      "id": 2,
+      "serviceId": 1,
+      "langId": 1,
+      "name": "early exit",
+      "pattern": "*Process exited before completing request*"
+    },{
+      "id": 3,
+      "serviceId": 1,
+      "langId": 1,
+      "name": "out of memory",
+      "pattern": "REPORT * \n| parse \"Memory Size: * MB Max Memory Used: * MB\" as memSize, memUsed \n| where memSize<=memUsed"
+    }, {
+      "id": 4,
+      "serviceId": 10,
+      "langId": 1,
+      "service": "Node.js",
+      "name": "error",
+      "pattern": "*Syntax error in module*"
+    },{
+      "id": 4,
+      "serviceId": 10,
+      "langId": 1,
+      "name": "crash",
+      "pattern": "*errorMessage*stackTrace* \n| parse \"* * *\" as time, requestId, error \n| json field=error \n| fields errorType"
+    }
+  ]
+}
