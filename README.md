@@ -6,7 +6,11 @@ Logbird uses it's own query language to match log events and extract data from t
 
 This repository is a collection of community-managed filters that span services and runtimes so it would be easy for users to achieve event-alerting for their applications.
 
-The library JSON is displayed in a searchable manner here https://logbird.io/docs/rules/rule-library/
+The library is also available in a friendly format in [our documentation](https://logbird.io/docs/rules/rule-library/).
+
+## You are welcome to contribute
+
+If you have suggestions for common filters that you would like to share with Logbird community, please submit a pull request.
 
 When creating a new filter, Logbird offers a way to run it against test-cases (think of it like unit testing) and make sure he filter matches what you would expect. We encourage you to run these tests when contributing here. To run a test, signin to [Logbird](https://app.logbird.io/), go to **Filters** in the left menu then click **Add rule**. You will see a modal screen similar to the one below. Enter your pattern and a few example logs below (or pull from AWS CloudWatch) and click **Run tests**.
 
