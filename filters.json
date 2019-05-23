@@ -8,12 +8,19 @@
       "id": 10,
       "name": "Node.js",
       "logo": "/img/icons/nodejs.png"
+    }, {
+      "id": 11,
+      "name": "Python",
+      "logo": "/img/icons/python.png"
     }
   ],
   "languages": [
     {
       "id": 1,
       "name": "Logbird Query"
+    }, {
+      "id": 2,
+      "name": "Regex"
     }
   ],
   "rules": [
@@ -23,13 +30,13 @@
       "langId": 1,
       "name": "timeout",
       "pattern": "*Task timed out after*"
-    },{
+    }, {
       "id": 2,
       "serviceId": 1,
       "langId": 1,
       "name": "early exit",
       "pattern": "*Process exited before completing request*"
-    },{
+    }, {
       "id": 3,
       "serviceId": 1,
       "langId": 1,
@@ -39,15 +46,26 @@
       "id": 4,
       "serviceId": 10,
       "langId": 1,
-      "service": "Node.js",
       "name": "error",
       "pattern": "*Syntax error in module*"
-    },{
-      "id": 4,
+    }, {
+      "id": 5,
       "serviceId": 10,
       "langId": 1,
       "name": "crash",
       "pattern": "*errorMessage*stackTrace* \n| parse \"* * *\" as time, requestId, error \n| json field=error \n| fields errorType"
+    }, {
+      "id": 6,
+      "serviceId": 11,
+      "langId": 2,
+      "name": "All exceptions (errors and warnings)",
+      "pattern": "(?<exception>((.*))(?<type>(Error|Iteration|Exit|Warning|Interrupt))):\\s(?<description>(.*))"
+    }, {
+      "id": 7,
+      "serviceId": 11,
+      "langId": 2,
+      "name": "Only errors (no warnings)",
+      "pattern": "(?<exception>((.*))(?<type>(Error|Iteration|Exit))):\\s(?<description>(.*))"
     }
   ]
 }
