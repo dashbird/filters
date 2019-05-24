@@ -53,7 +53,7 @@
       "serviceId": 10,
       "langId": 1,
       "name": "crash",
-      "pattern": "*errorMessage*stackTrace* \n| parse \"* * *\" as time, requestId, error \n| json field=error \n| fields errorType"
+      "pattern": "*errorMessage*stackTrace* \n| parse \"* * *\" as time, requestId, error \n| json field=error \n| fields errorType, errorMessage"
     }, {
       "id": 6,
       "serviceId": 11,
